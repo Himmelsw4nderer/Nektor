@@ -99,9 +99,16 @@ object NektorGameGame{
     //returning the name of a contender
     fun getName(contender: Int, teamMate: Int? = null): String = contenders[contender].getName(teamMate)
 
+    //returning the History Array
     fun getHistory(): ArrayList<NektorGameRound>{
+        //adding round that ios currently running
         var tmp = rounds
         tmp.add(playableRound)
+        //returning the Array
         return tmp
     }
+
+    //returning the amount of rounds
+    fun getRoundCount() = getHistory().size
+
 }
