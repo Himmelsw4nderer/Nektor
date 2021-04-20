@@ -22,6 +22,7 @@ publishing {
     publications {
         create<MavenPublication>("Nektor") {
             from(components["kotlin"])
+            artifactId = "Nektor"
         }
     }
 
