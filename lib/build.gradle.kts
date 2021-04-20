@@ -6,22 +6,37 @@
  * User Manual available at https://docs.gradle.org/7.0/userguide/building_java_projects.html
  */
 
-
+group = "de.himmelsw4nderer.nektor"
+version = "0.1.0"
 
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
     id("org.jetbrains.kotlin.jvm") version "1.4.32"
-    id("maven-publish")
+    `maven-publish`
 
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("Nektor") {
+            from(components["kotlin"])
+        }
+    }
 
+    repositories {
+        maven {
+            name = "Nektor"
+            url = uri(layout.buildDirectory.dir("nektor"))
+        }
+    }
+}
 
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
@@ -40,6 +55,3 @@ dependencies {
     // Use the Kotlin JUnit integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
 }
-
-group = "de.himmelsw4nderer.nektor"
-version = "0.1.0"
