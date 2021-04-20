@@ -1,0 +1,4 @@
+package ranking
+
+interface NektorRankingContender {
+}
