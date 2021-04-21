@@ -1,3 +1,4 @@
+// lib/src/main/kotlin/de/himmelsw4nderer/nektor/game/NektorGameGame.kt
 package game
 
 import base.NektorRuleSet
@@ -127,7 +128,7 @@ object NektorGameGame{
     fun getName(contender: Int, teamMate: Int? = null): String = contenders[contender].getName(teamMate)
 
     /**
-     *@return the history of rounds that are played
+     * @return the history of rounds that are played
      */
     fun getHistory(): ArrayList<NektorGameRound>{
         //adding round that ios currently running
