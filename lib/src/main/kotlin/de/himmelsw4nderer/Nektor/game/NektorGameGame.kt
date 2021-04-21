@@ -32,14 +32,14 @@ object NektorGameGame{
 
 
     /**
-     * Changes the ruleset of the game to [rules].
+     * Changes the ruleset of the game to rules.
      */
     fun changeRuleSet(rules: NektorRuleSet){
         this.ruleSet = rules
     }
 
     /**
-     * Adds [player] to the game with [score].
+     * Adds a player to the game with score.
      */
     fun addPlayer(player: NektorRankingPlayer, score: Int){
         //adds player to contenders after conversion into Game.GamePlayer
@@ -50,7 +50,7 @@ object NektorGameGame{
     }
 
     /**
-     * Adds a team of [players] to the game with [scores], a [mode] and a [name].
+     * Adds a team of players to the game with scores, a mode and a name.
      */
     fun addTeam(players: ArrayList<NektorRankingPlayer>, scores: ArrayList<Int>, mode: Int, name: String){
         //list of players for the team
@@ -69,7 +69,7 @@ object NektorGameGame{
     }
 
     /**
-     * Adding the [score] to the [contender] and if possible [teamMate].
+     * Adding the score to the contender and if possible teamMate.
      */
     fun addScore(score: Int, contender: Int, teamMate: Int = 0){
         contenders[contender].addPoints(score, teamMate)
@@ -83,9 +83,9 @@ object NektorGameGame{
     }
 
     /**
-     * Returns the score of [contender] or [teamMate] if possible.
+     * Returns the score of contender or teamMate if possible.
      *
-     * @return The score of the [contender] or the score of the [teammate].
+     * @return The score of the contender or the score of the teammate.
      */
     fun getScore(contender: Int, teamMate: Int? = null): Int{
         if (teamMate == null){
@@ -95,9 +95,9 @@ object NektorGameGame{
     }
 
     /**
-     * Returns the name of the [contender] or the [teamMate] if possible.
+     * Returns the name of the contender or the teamMate if possible.
      *
-     * @return The name of the [contender] or the name of the [teamMate].
+     * @return The name of the contender or the name of the teamMate.
      */
     fun getName(contender: Int, teamMate: Int? = null): String = contenders[contender].getName(teamMate)
 

@@ -4,29 +4,103 @@ import game.NektorGamePlayer
 import base.NektorPlayer
 import game.NektorGameGame
 
+/**
+ * A ranked player.
+ *
+ * @constructor Creates an player out of the given games, wins, draws, loses, name and id.
+ * @property games the games of the player.
+ * @property wins the wins of the player.
+ * @property draws the draws of the player.
+ * @property loses the loses of the player.
+ * @property name the name of the player.
+ * @property id the id of the player.
+ */
 class NektorRankingPlayer (var games:ArrayList<Int>, var wins:ArrayList<Int>, var draws:ArrayList<Int>, var loses:ArrayList<Int>, name: String, id: Int) : NektorPlayer(name, id), NektorRankingContender {
 
-    //variables for total wins
+    /**
+     * All games of the player
+     */
     var totalGames: Int = total(games)
+    /**
+     * All wins of the player
+     */
     var totalWins: Int = total(wins)
+    /**
+     * All draws of the player
+     */
     var totalDraws: Int = total(draws)
+    /**
+     * All loses of the player
+     */
     var totalLoses: Int = total(loses)
 
-    //returning total wins, games, draws, loses
+    /**
+     * Returns the games of the player.
+     *
+     * @return The games of the player.
+     */
     fun totalGames(): Int = totalGames
+    /**
+     * Returns the wins of the player.
+     *
+     * @return The wins of the player.
+     */
     fun totalWins(): Int = totalWins
+    /**
+     * Returns the draws of the player.
+     *
+     * @return The draws of the player.
+     */
     fun totalDraws(): Int = totalDraws
+    /**
+     * Returns the loses of the player.
+     *
+     * @return The loses of the player.
+     */
     fun totalLoses(): Int = totalLoses
 
-    //returning games, wins, draws, loses of a specific gameMode
+    /**
+     * Returns the games of the player in a specific gamemode.
+     *
+     * @return The games of the player in a specific gamemode.
+     */
     fun games(pos: Int):Int = games[pos]
+    /**
+     * Returns the wins of the player in a specific gamemode.
+     *
+     * @return The wins of the player in a specific gamemode.
+     */
     fun wins(pos: Int):Int = wins[pos]
+    /**
+     * Returns the draws of the player in a specific gamemode.
+     *
+     * @return The draws of the player in a specific gamemode.
+     */
     fun draws(pos: Int):Int = draws[pos]
+    /**
+     * Returns the loses of the player in a specific gamemode.
+     *
+     * @return The loses of the player in a specific gamemode.
+     */
     fun loses(pos: Int):Int = loses[pos]
 
-    //returning win-, lose- and and drawRate
+    /**
+     * Returns the winrate of the player.
+     *
+     * @return The winrate of the player.
+     */
     fun winRate(pos: Int):Float = wins[pos]/games[pos].toFloat()*100
+    /**
+     * Returns the drawrate of the player.
+     *
+     * @return The drawrate of the player.
+     */
     fun drawRate(pos: Int):Float = draws[pos]/games[pos].toFloat()*100
+    /**
+     * Returns the loserate of the player.
+     *
+     * @return The loserate of the player.
+     */
     fun loseRate(pos: Int):Float = loses[pos]/games[pos].toFloat()*100
 
 
@@ -39,10 +113,16 @@ class NektorRankingPlayer (var games:ArrayList<Int>, var wins:ArrayList<Int>, va
         return total
     }
 
-    //start an instance of Game.GamePlayer out of a Ranking.RankingPlayer
+    /**
+     * Returns a game player out of this ranked player.
+     *
+     * @return A game player out of this ranked player.
+     */
     fun makeGamePlayer(score: Int): NektorGamePlayer = NektorGamePlayer(score, name, id)
 
-    //adds a game to the Players stats
+    /**
+     * Adds a game to the player.
+     */
     fun addGame(game: NektorGameGame){
         //TODO
     }

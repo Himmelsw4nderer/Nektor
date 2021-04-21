@@ -1,18 +1,41 @@
 package game
 
+/**
+ * Returns the name of the player.
+ *
+ * @return The name of the player.
+ */
 interface NektorGameContender {
-    //adding Points to a contender
+    /**
+     * Adds a score to the contender.
+     */
     fun addPoints(score: Int, teamMate: Int = 0){}
 
-    //returning the score of the contender
+    /**
+     * Returns the score of the contender.
+     *
+     * @return The score of the contender.
+     */
     fun getScore():Int = 0
 
-    //returning the size of the contenders Team /  normal 1
+    /**
+     * Returns the size of the contender mostly used for teams.
+     *
+     * @return The size of the contender.
+     */
     fun size():Int = 1
 
-    //returns the Score of a player
+    /**
+     * Returns the score of a player of the contender mostly used for teams.
+     *
+     * @return The score of a player of the contender.
+     */
     fun getPlayerScore(teamMate: Int): Int = 0
 
-    //returns the name
+    /**
+     * Returns the name of the contender.
+     *
+     * @return The name of the contender.
+     */
     fun getName(teamMate: Int? = null): String = ""
 }
