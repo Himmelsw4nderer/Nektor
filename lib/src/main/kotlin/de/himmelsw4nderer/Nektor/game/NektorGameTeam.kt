@@ -5,10 +5,10 @@ package game
  *
  * @constructor Creates an team out of the given players with a given name and mode.
  * @property players The players of the team.
- * @property MODE The mode of the team.
+ * @property mode The mode of the team.
  * @property name The name of the team.
  */
-class NektorGameTeam (var players: ArrayList<NektorGamePlayer>, val MODE: Int, val name: String) : NektorGameContender {
+class NektorGameTeam (var players: ArrayList<NektorGamePlayer>, val mode: Int, val name: String) : NektorGameContender {
 
     companion object {
         const val MODE_EQUAL_SCORE: Int = 0 //Mode when the whole team has one score (Stored in the first player)
