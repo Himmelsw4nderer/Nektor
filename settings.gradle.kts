@@ -9,3 +9,10 @@
 
 rootProject.name = "Nektor"
 include("lib")
+
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        jcenter()
+    }
+}
