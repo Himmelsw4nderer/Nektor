@@ -3,7 +3,14 @@ package game
 import base.NektorRuleSet
 import ranking.NektorRankingPlayer
 
+/**
+ * A basic game
+ *
+ * @constructor creates a empty Game
+ */
+
 object NektorGameGame{
+
     //all teams and or players are stored here
     var contenders: ArrayList<NektorGameContender> = ArrayList()
 
@@ -15,11 +22,17 @@ object NektorGameGame{
     //ruleSet of the game
     var ruleSet: NektorRuleSet = NektorRuleSet(0,"standard", ArrayList()) // TODO Standard ruleSet
 
+
+    /**
+     * changes the ruleset of the game to [rules]
+     */
     fun changeRuleSet(rules: NektorRuleSet){
         this.ruleSet = rules
     }
 
-    //adds a player to the game
+    /**
+     * adds [player] to the game with [score]
+     */
     fun addPlayer(player: NektorRankingPlayer, score: Int){
         //adds player to contenders after conversion into Game.GamePlayer
         contenders.add(player.makeGamePlayer(score))
@@ -28,7 +41,9 @@ object NektorGameGame{
         playableRound = updateRound()
     }
 
-    //adds a team to the game
+    /**
+     * adds a team of [playersRaw] to the game with [scores], a [mode] and a [name] 
+     */
     fun addTeam(playersRaw: ArrayList<NektorRankingPlayer>, scores: ArrayList<Int>, mode: Int, name: String){
         //list of players for the team
         val players: ArrayList<NektorGamePlayer> = ArrayList()
@@ -45,7 +60,9 @@ object NektorGameGame{
         playableRound = updateRound()
     }
 
-    //adding a score to a contender
+    /**
+     * adding the [score] to the contender with position [contender] of contender and if possible teammate with position [teamMate] of the teammate 
+     */
     fun addScore(score: Int, contender: Int, teamMate: Int = 0){
         contenders[contender].addPoints(score, teamMate)
 
@@ -57,7 +74,11 @@ object NektorGameGame{
         playableRound[contender].setScore(teamMate, score)
     }
 
-    //returning the score to a contender
+    /**
+     * takes the position [contender] of contender and the position [teamMate] of teammate if possible
+     *
+     * @return the score of the contender or the score of the teammate from the contender
+     */
     fun getScore(contender: Int, teamMate: Int? = null): Int{
         if (teamMate == null){
             return contenders[contender].getScore()
@@ -65,7 +86,9 @@ object NektorGameGame{
         return contenders[contender].getPlayerScore(teamMate)
     }
 
-    //starting a next round
+    /**
+     * starting a new round
+     */
     fun nextRound(){
         rounds.add(playableRound)
         playableRound = newRound()
@@ -96,10 +119,16 @@ object NektorGameGame{
         return newRound
     }
 
-    //returning the name of a contender
+    /**
+     * takes the position [contender] of contender and the position [teamMate] of teammate if possible
+     *
+     * @return the name of the contender or the score of the teammate from the contender
+     */
     fun getName(contender: Int, teamMate: Int? = null): String = contenders[contender].getName(teamMate)
 
-    //returning the History Array
+    /**
+     *@return the history of rounds that are played
+     */
     fun getHistory(): ArrayList<NektorGameRound>{
         //adding round that ios currently running
         var tmp = rounds
@@ -108,7 +137,9 @@ object NektorGameGame{
         return tmp
     }
 
-    //returning the amount of rounds
+    /**
+     * @return the amount of rounds that are played
+     */
     fun getRoundCount() = getHistory().size
 
 }
