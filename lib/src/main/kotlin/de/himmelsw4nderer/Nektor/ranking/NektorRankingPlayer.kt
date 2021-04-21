@@ -8,12 +8,12 @@ import game.NektorGameGame
  * A ranked player.
  *
  * @constructor Creates an player out of the given games, wins, draws, loses, name and id.
- * @property games the games of the player.
- * @property wins the wins of the player.
- * @property draws the draws of the player.
- * @property loses the loses of the player.
- * @property name the name of the player.
- * @property id the id of the player.
+ * @property games The games of the player.
+ * @property wins The wins of the player.
+ * @property draws The draws of the player.
+ * @property loses The loses of the player.
+ * @property name The name of the player.
+ * @property id The id of the player.
  */
 class NektorRankingPlayer (var games:ArrayList<Int>, var wins:ArrayList<Int>, var draws:ArrayList<Int>, var loses:ArrayList<Int>, name: String, id: Int) : NektorPlayer(name, id), NektorRankingContender {
 

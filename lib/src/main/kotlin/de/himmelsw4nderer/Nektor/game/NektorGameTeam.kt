@@ -4,9 +4,9 @@ package game
  * A game team.
  *
  * @constructor Creates an team out of the given players with a given name and mode.
- * @property players the players of the team.
- * @property MODE the mode of the team.
- * @property name the name of the team.
+ * @property players The players of the team.
+ * @property MODE The mode of the team.
+ * @property name The name of the team.
  */
 class NektorGameTeam (var players: ArrayList<NektorGamePlayer>, val MODE: Int, val name: String) : NektorGameContender {
 

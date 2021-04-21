@@ -1,9 +1,7 @@
 package game
 
 /**
- * Returns the name of the player.
- *
- * @return The name of the player.
+ * A game contender.
  */
 interface NektorGameContender {
     /**

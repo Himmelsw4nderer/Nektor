@@ -6,9 +6,9 @@ import base.NektorPlayer
  * A game player.
  *
  * @constructor Creates an game player with score, name and id.
- * @property score the score of this player.
- * @property name the name of this player.
- * @property id the id of this player.
+ * @property score The score of this player.
+ * @property name The name of this player.
+ * @property id The id of this player.
  */
 class NektorGamePlayer(private var score: Int, name: String, id: Int) : NektorPlayer(name, id), NektorGameContender {
 

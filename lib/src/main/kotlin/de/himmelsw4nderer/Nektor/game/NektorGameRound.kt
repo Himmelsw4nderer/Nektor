@@ -4,7 +4,7 @@ package game
  * A game Round.
  *
  * @constructor Creates an empty round with a specific length.
- * @property lengths the size of each contender.
+ * @property lengths The size of each contender.
  */
 class NektorGameRound(lengths: ArrayList<Int>) : ArrayList<NektorGameScore>() {
     init {

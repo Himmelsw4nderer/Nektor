@@ -4,7 +4,7 @@ package game
  * A game Score.
  *
  * @constructor Creates an empty score with a specific size.
- * @property size the size of the contender.
+ * @property size The size of the contender.
  */
 class NektorGameScore(size: Int) : ArrayList<Int>(){
     init{

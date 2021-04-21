@@ -4,8 +4,8 @@ package base
  * A basic Player.
  *
  * @constructor Creates an basic player with name and id.
- * @property name the name of this player.
- * @property id the id of this player.
+ * @property name The name of this player.
+ * @property id The id of this player.
  */
 open class NektorPlayer(var name:String, var id:Int) {
     /**
