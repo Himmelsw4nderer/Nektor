@@ -41,12 +41,12 @@ class NektorGamePlayer(private var score: Int, name: String, id: Int) : NektorPl
     }
 
     /**
-     * Returns the name of the player. Teammate is only used for teams and not players.
+     * Returns the name of the player.
      *
      * @return The name of the player.
      */
     override fun getName(teamMate: Int?): String {
-        super.getName(teamMate)
-        return name
+        super<NektorGameContender>.getName(teamMate)
+        return getName()
     }
 }

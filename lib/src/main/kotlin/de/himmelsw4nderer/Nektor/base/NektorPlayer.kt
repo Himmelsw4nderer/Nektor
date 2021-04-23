@@ -7,7 +7,7 @@ package base
  * @property name The name of this player.
  * @property id The id of this player.
  */
-open class NektorPlayer(var name:String, var id:Int) {
+open class NektorPlayer(private var name:String, private var id:Int) {
     /**
      * Returns the name of the player.
      *
