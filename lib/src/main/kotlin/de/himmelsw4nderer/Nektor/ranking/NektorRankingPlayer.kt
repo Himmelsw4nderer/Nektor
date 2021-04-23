@@ -39,69 +39,69 @@ class NektorRankingPlayer (var games:ArrayList<Int>, var wins:ArrayList<Int>, va
      *
      * @return The games of the player.
      */
-    fun totalGames(): Int = totalGames
+    fun getTotalGames(): Int = totalGames
     /**
      * Returns the wins of the player.
      *
      * @return The wins of the player.
      */
-    fun totalWins(): Int = totalWins
+    fun getTotalWins(): Int = totalWins
     /**
      * Returns the draws of the player.
      *
      * @return The draws of the player.
      */
-    fun totalDraws(): Int = totalDraws
+    fun getTotalDraws(): Int = totalDraws
     /**
      * Returns the loses of the player.
      *
      * @return The loses of the player.
      */
-    fun totalLoses(): Int = totalLoses
+    fun getTotalLoses(): Int = totalLoses
 
     /**
      * Returns the games of the player in a specific gamemode.
      *
      * @return The games of the player in a specific gamemode.
      */
-    fun games(pos: Int):Int = games[pos]
+    fun getGames(pos: Int):Int = games[pos]
     /**
      * Returns the wins of the player in a specific gamemode.
      *
      * @return The wins of the player in a specific gamemode.
      */
-    fun wins(pos: Int):Int = wins[pos]
+    fun getWins(pos: Int):Int = wins[pos]
     /**
      * Returns the draws of the player in a specific gamemode.
      *
      * @return The draws of the player in a specific gamemode.
      */
-    fun draws(pos: Int):Int = draws[pos]
+    fun getDraws(pos: Int):Int = draws[pos]
     /**
      * Returns the loses of the player in a specific gamemode.
      *
      * @return The loses of the player in a specific gamemode.
      */
-    fun loses(pos: Int):Int = loses[pos]
+    fun getLoses(pos: Int):Int = loses[pos]
 
     /**
      * Returns the winrate of the player.
      *
      * @return The winrate of the player.
      */
-    fun winRate(pos: Int):Float = wins[pos]/games[pos].toFloat()*100
+    fun getWinRate(pos: Int):Float = wins[pos]/games[pos].toFloat()*100
     /**
      * Returns the drawrate of the player.
      *
      * @return The drawrate of the player.
      */
-    fun drawRate(pos: Int):Float = draws[pos]/games[pos].toFloat()*100
+    fun getDrawRate(pos: Int):Float = draws[pos]/games[pos].toFloat()*100
     /**
      * Returns the loserate of the player.
      *
      * @return The loserate of the player.
      */
-    fun loseRate(pos: Int):Float = loses[pos]/games[pos].toFloat()*100
+    fun getLoseRate(pos: Int):Float = loses[pos]/games[pos].toFloat()*100
 
 
     //calculating a total out of Int Array

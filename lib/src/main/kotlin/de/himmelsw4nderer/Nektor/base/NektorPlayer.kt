@@ -13,11 +13,11 @@ open class NektorPlayer(var name:String, var id:Int) {
      *
      * @return The name of the player.
      */
-    fun name():String = name
+    fun getName():String = name
     /**
      * Returns the id of the player.
      *
      * @return The id of the player.
      */
-    fun id():Int = id
+    fun getId():Int = id
 }
