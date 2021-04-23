@@ -3,7 +3,7 @@ package game
 /**
  * A game contender.
  */
-interface NektorGameContender {
+interface NektorGameContender{
     /**
      * Adds a score to the contender.
      */

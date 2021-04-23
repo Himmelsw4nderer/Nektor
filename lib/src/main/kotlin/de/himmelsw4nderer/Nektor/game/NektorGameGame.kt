@@ -1,6 +1,7 @@
 package game
 
 import base.NektorRuleSet
+import base.NektorRule
 import ranking.NektorRankingPlayer
 
 /**
@@ -34,8 +35,8 @@ object NektorGameGame{
     /**
      * Changes the ruleset of the game to rules.
      */
-    fun changeRuleSet(rules: NektorRuleSet){
-        this.ruleSet = rules
+    fun changeRuleSet(ruleSet: NektorRuleSet){
+        this.ruleSet = ruleSet
     }
 
     /**
@@ -141,10 +142,10 @@ object NektorGameGame{
      */
     fun getHistory(): ArrayList<NektorGameRound>{
         //adding round that ios currently running
-        var tmp = rounds
-        tmp.add(playableRound)
+        var completeHistory = rounds
+        completeHistory.add(playableRound)
         //returning the Array
-        return tmp
+        return completeHistory
     }
 
     /**
@@ -154,4 +155,22 @@ object NektorGameGame{
      */
     fun getRoundCount() = getHistory().size
 
+    /**
+     * Returns the contenders sorted due to the score.
+     *
+     * @return The contenders sorted due to the score.
+     */
+    fun getContendersByStandings(): ArrayList<NektorGameContender>{
+
+        var sortedContenders = ArrayList(contenders.sortedBy { it.getScore() })
+
+        //returning the Array according to the rules of the lowest score wins
+        if(ruleSet.getRuleValue(NektorRule.RULE_LOWEST_SCORE_WINS) == NektorRule.RULE_BOOL_TRUE){
+            return sortedContenders
+        } else {
+            //reversing the array and returning
+            return kotlin.collections.ArrayList(sortedContenders.reversed())
+        }
+ 
+    }
 }
