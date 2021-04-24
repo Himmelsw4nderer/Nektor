@@ -8,10 +8,8 @@ package game
  */
 class NektorGameScore(size: Int) : ArrayList<Int>(){
     init{
-        var pos = 0
-        while(pos < size){
+        for(pos in (0..size)){
             this.add(0)
-            pos++
         }
     }
 

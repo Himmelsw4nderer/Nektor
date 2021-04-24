@@ -127,10 +127,8 @@ object NektorGameGame{
     //Updates the current round to fit the new contender Count
     private fun updateRound(): NektorGameRound {
         var newRound = newRound()
-        var pos = 0
-        while (pos < playableRound.size){
+        for (pos in (0..playableRound.size-1)){
             newRound[pos] = playableRound[pos]
-            pos++
         }
         return newRound
     }
