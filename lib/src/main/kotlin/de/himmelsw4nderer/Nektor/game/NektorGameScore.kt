@@ -8,7 +8,7 @@ package game
  */
 class NektorGameScore(size: Int) : ArrayList<Int>(){
     init{
-        for(pos in (0..size)){
+        for(pos in (0..size -1)){
             this.add(0)
         }
     }
