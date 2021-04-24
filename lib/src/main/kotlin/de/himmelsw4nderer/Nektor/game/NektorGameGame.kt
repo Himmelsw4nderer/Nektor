@@ -42,7 +42,7 @@ object NektorGameGame{
     /**
      * Adds a player to the game with score.
      */
-    fun addPlayer(player: NektorRankingPlayer, score: Int){
+    fun addPlayer(player: NektorRankingPlayer, score: Int = ruleSet.getRuleValue(NektorRule.RULE_START_SCORE)){
         //adds player to contenders after conversion into Game.GamePlayer
         contenders.add(player.makeGamePlayer(score))
 
@@ -53,13 +53,24 @@ object NektorGameGame{
     /**
      * Adds a team of players to the game with scores, a mode and a name.
      */
-    fun addTeam(players: ArrayList<NektorRankingPlayer>, scores: ArrayList<Int>, mode: Int, name: String){
+    fun addTeam(players: ArrayList<NektorRankingPlayer>, mode: Int, name: String , scores: ArrayList<Int>? = null){
+        var finalScores = ArrayList<Int>()
+        //if there is no scores input
+        if(scores == null){
+            //adding standard value
+            for(player in players){
+                finalScores.add(ruleSet.getRuleValue(NektorRule.RULE_START_SCORE))
+            }
+        } else {
+            finalScores = scores
+        }
+
         //list of players for the team
         val teamMembers: ArrayList<NektorGamePlayer> = ArrayList()
         //converting all players to GamePlayers
         var index = 0
         while(index < players.size){
-            teamMembers.add(players[index].makeGamePlayer(scores[index]))
+            teamMembers.add(players[index].makeGamePlayer(finalScores[index]))
             index++
         }
         //creating the Team and add it to the contenders
@@ -73,14 +84,18 @@ object NektorGameGame{
      * Adding the score to the contender and if possible teamMate.
      */
     fun addScore(score: Int, contender: Int, teamMate: Int = 0){
-        contenders[contender].addPoints(score, teamMate)
+
+        //applying multiply rule
+        var finalScore = score * ruleSet.getRuleValue(NektorRule.RULE_SCORE_MULTIPLY)
+
+        contenders[contender].addPoints(finalScore, teamMate)
 
         //if new Round is beginning
         if (playableRound[contender][teamMate] != 0){
             nextRound()
         }
         //adding the score to the round
-        playableRound[contender].setScore(teamMate, score)
+        playableRound[contender].setScore(teamMate, finalScore)
     }
 
     /**

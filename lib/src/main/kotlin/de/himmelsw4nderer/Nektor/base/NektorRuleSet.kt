@@ -14,7 +14,7 @@ class NektorRuleSet (var id: Int, var name: String, var rules: ArrayList<NektorR
         /**
          * This string saves the standard ruleset
          */
-        const val BASIC_RULE_SET_STRING = "0;basic_0|0|0"
+        const val BASIC_RULE_SET_STRING = "0;basic_0|1|0"
     }
 
     /**

@@ -26,9 +26,9 @@ class NektorRule(private var value:Int){
          */
         const val RULE_START_SCORE: Int = 0
         /**
-         * This rule sets if the score should add up or reduce or both or something else (saved in int as mode ids)
+         * This rule sets the value with whom the added score will be multiplied (for example: -1 reduce count, 1 add count)
          */
-        const val RULE_SCORE_MODE: Int = 1
+        const val RULE_SCORE_MULTIPLY: Int = 1
         /**
          * This rule sets if the highest score wins (can be 0 for highest and 1 for lowest)
          */
