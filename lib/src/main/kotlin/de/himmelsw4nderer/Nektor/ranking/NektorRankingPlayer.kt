@@ -12,35 +12,43 @@ import game.NektorGameGame
  * @property wins The wins of the player.
  * @property draws The draws of the player.
  * @property loses The loses of the player.
+ * @property gameHistoryIds The id of the player.
  * @property name The name of the player.
  * @property id The id of the player.
  */
-class NektorRankingPlayer (var games:ArrayList<Int>, var wins:ArrayList<Int>, var draws:ArrayList<Int>, var loses:ArrayList<Int>, name: String, id: Int) : NektorPlayer(name, id), NektorRankingContender {
+class NektorRankingPlayer (var games:ArrayList<Int>, var wins:ArrayList<Int>, var draws:ArrayList<Int>, var loses:ArrayList<Int>, var gameHistoryIds:ArrayList<Int>, name: String, id: Int) : NektorPlayer(name, id) {
+
+    /**
+     * Returns the game history of the player.
+     *
+     * @return The game history of the player.
+     */
+    fun getHistoryIds(): ArrayList<Int> = gameHistoryIds
 
     /**
      * Returns the games of the player.
      *
      * @return The games of the player.
      */
-    fun getTotalGames(): Int = total(games)
+    fun getTotalGames(): Int = games.sum()
     /**
      * Returns the wins of the player.
      *
      * @return The wins of the player.
      */
-    fun getTotalWins(): Int = total(wins)
+    fun getTotalWins(): Int = wins.sum()
     /**
      * Returns the draws of the player.
      *
      * @return The draws of the player.
      */
-    fun getTotalDraws(): Int = total(draws)
+    fun getTotalDraws(): Int = draws.sum()
     /**
      * Returns the loses of the player.
      *
      * @return The loses of the player.
      */
-    fun getTotalLoses(): Int = total(loses)
+    fun getTotalLoses(): Int = loses.sum()
 
     /**
      * Returns the games of the player in a specific gamemode.
@@ -68,6 +76,25 @@ class NektorRankingPlayer (var games:ArrayList<Int>, var wins:ArrayList<Int>, va
     fun getLoses(pos: Int):Int = loses[pos]
 
     /**
+     * Returns the total winrate of the player.
+     *
+     * @return The total winrate of the player.
+     */
+    fun getTotalWinRate():Float = wins.sum()/games.sum().toFloat()*100
+    /**
+     * Returns the total drawrate of the player.
+     *
+     * @return The total drawrate of the player.
+     */
+    fun getTotalDrawRate():Float = draws.sum()/games.sum().toFloat()*100
+    /**
+     * Returns the total loserate of the player.
+     *
+     * @return The total loserate of the player.
+     */
+    fun getTotalLoseRate():Float = loses.sum()/games.sum().toFloat()*100
+
+    /**
      * Returns the winrate of the player in one gamemmode.
      *
      * @return The winrate of the player in one gamemmode.
@@ -85,34 +112,6 @@ class NektorRankingPlayer (var games:ArrayList<Int>, var wins:ArrayList<Int>, va
      * @return The loserate of the player in one gamemmode.
      */
     fun getLoseRate(pos: Int):Float = loses[pos]/games[pos].toFloat()*100
-
-    /**
-     * Returns the total winrate of the player.
-     *
-     * @return The total winrate of the player.
-     */
-    fun getTotalWinRate():Float = total(wins)/total(games).toFloat()*100
-    /**
-     * Returns the total drawrate of the player.
-     *
-     * @return The total drawrate of the player.
-     */
-    fun getTotalDrawRate():Float = total(draws)/total(games).toFloat()*100
-    /**
-     * Returns the total loserate of the player.
-     *
-     * @return The total loserate of the player.
-     */
-    fun getTotalLoseRate():Float = total(loses)/total(games).toFloat()*100
-
-    //calculating a total out of Int Array
-    private fun total(array: ArrayList<Int>): Int{
-        var total = 0
-        for (int in array) {
-            total += int
-        }
-        return total
-    }
 
     /**
      * Returns a game player out of this ranked player.

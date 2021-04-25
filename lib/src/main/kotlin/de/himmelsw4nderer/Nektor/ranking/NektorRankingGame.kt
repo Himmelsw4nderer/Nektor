@@ -1,14 +1,27 @@
 package ranking
 
-import base.NektorRuleSet
-
 /**
  * A ranking game.
  *
- * @constructor Creates an gsme out of the given ruleset, contenders and rounds.
- * @property ruleSet The ruleset of the game.
- * @property contenders The contenders of the game.
+ * @constructor Creates an gsme out of the given id, ruleset, contenders and rounds.
+ * @property id The id of the game.
+ * @property ruleSetId The id of the gamemode/ruleset.
+ * @property contenderIds The id of players.
  * @property rounds The rounds of the game.
  */
-class NektorRankingGame(ruleSet: NektorRuleSet, contenders: ArrayList<NektorRankingContender>, rounds: ArrayList<ArrayList<Int>>) {
+class NektorRankingGame(private var id: Int, private var ruleSetId: Int, contenderIds: ArrayList<ArrayList<Int>>, history: ArrayList<ArrayList<Int>>) {
+
+    /**
+     * Returns the id.
+     *
+     * @return The id.
+     */
+    fun getId(): Int = id
+
+    /**
+     * Returns the ruleset id.
+     *
+     * @return The ruleset id.
+     */
+    fun getRuleSetId(): Int = ruleSetId
 }
