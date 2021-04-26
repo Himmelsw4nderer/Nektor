@@ -122,12 +122,19 @@ class NektorRankingController {
      *
      * @return The game history of a given player.
      */
-    fun getMatchHistoryByPlayer(playerId : Int): ArrayList<NektorRankingGame>{
+    fun getMatchHistoryByPlayer(playerId : Int): ArrayList<NektorRankingGame> = getMatchHistoryByPlayers(arrayListOf(playerId))
+
+    /**
+     * Returns the game history of given players.
+     *
+     * @return The game history of given players.
+     */
+    fun getMatchHistoryByPlayers(playerId : ArrayList<Int>): ArrayList<NektorRankingGame>{
         var playerGames : ArrayList<NektorRankingGame> = ArrayList()
 
         //finding the player fitting to the id
         for (player in players) {
-            if(player.getId() == playerId){
+            if(playerId.contains(player.getId())){
                 //adding all games that are in the history of the player
                 for (game in games) {
                     if(player.getHistoryIds().contains(game.getId())){
@@ -145,12 +152,19 @@ class NektorRankingController {
      *
      * @return The game history of a given ruleset/gamemode.
      */
-    fun getMatchHistoryByRuleSet(ruleSetId : Int): ArrayList<NektorRankingGame>{
+    fun getMatchHistoryByRuleSet(ruleSetId : Int): ArrayList<NektorRankingGame> = getMatchHistoryByRuleSets(arrayListOf(ruleSetId))
+
+    /**
+     * Returns the game history of given rulesets/gamemodes.
+     *
+     * @return The game history of given rulesets/gamemodes.
+     */
+    fun getMatchHistoryByRuleSets(ruleSetId : ArrayList<Int>): ArrayList<NektorRankingGame>{
         var ruleSetGames : ArrayList<NektorRankingGame> = ArrayList()
 
         //adding every game that has the given ruleset id
         for(game in games) {
-            if(game.getRuleSetId() == ruleSetId){
+            if(ruleSetId.contains(game.getRuleSetId())){
                 ruleSetGames.add(game)
             }
         }
